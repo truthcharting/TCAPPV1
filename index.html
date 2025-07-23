@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilgrim Path</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pilgrim Path">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMxYTFhMmUiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMkwxMy4wOSA4Ljc5TDIwIDEyTDEzLjA5IDE1LjIxTDEyIDIyTDEwLjkxIDE1LjIxTDQgMTJMMTAuOTEgOC43OUwxMiAyWiIgZmlsbD0iI2ZmZDcwMCIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPC9zdmc+Cjwvc3ZnPg==">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMxYTFhMmUiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMkwxMy4wOSA4Ljc5TDIwIDEyTDEzLjA5IDE1LjIxTDEyIDIyTDEwLjkxIDE1LjIxTDQgMTJMMTAuOTEgOC43OUwxMiAyWiIgZmlsbD0iI2ZmZDcwMCIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPC9zdmc+Cjwvc3ZnPg==">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBpbGdyaW0gUGF0aCIsCiAgInNob3J0X25hbWUiOiAiUGlsZ3JpbSIsCiAgImRlc2NyaXB0aW9uIjogIkNhdGhvbGljIEFkdmVudHVyZSBBcHAiLAogICJzdGFydF91cmwiOiAiLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgInRoZW1lX2NvbG9yIjogIiMxYTFhMmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxYTFhMmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVGt5SWlCb1pXbG5hSFE5SWpFNU1pSWdkbWxsZDBKdmVEMGlNQ0F3SURFNU1pQXhPVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK0NqeHlaV04wSUhkcFpIUm9QU0l4T1RJaUlHaGxhV2RvZEQwaU1Ua3lJaUJ5ZUQwaU1qUWlJR1pwYkd3OUlpTXhZVEZoTW1VaUx6NEtQSE4yWnlCNFBTSTBPQ0lnZVQwaU5EZ2lJSGRwWkhSb1BTSTVOaUlnYUdWcFoyaDBQU0k1TmlJZ2RtbGxkMEp2ZUQwaU1DQXdJakkwSURJMElpQm1hV3hzUFNKdWIyNWxJaUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lQZ284Y0dGMGFDQmtQU0pOTVRJZ01rdzBUamt1TURrZ09DNDNPVXd5TUNNZ01USXNNREUwTGpBNUlERTFMakl4VEUXSU1qSXhNVEF1T1RFZ01UVXVNAKV1ZGNmQnNzY0gxaWJHdzlQU0pqUVhBZDlWdFFHaDQwcnIwc29hVk9BNEJHQ1R2bm1HdlptUm9ZblNoYTFVS2IwMnpVcHFPcGlJaXZleXNoU3htWmdGSUpNdGJJZ2VBeEhzb1ZqblVWaUlWZE9BWUNUUWdad2lHYlB0eU5FYWRWTkgwUzVrTXpaNHF1c3pBT1Y2RjlNWFFPM2g1NGNOVXc9PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        /* CSS Variables */
+        :root {
+            --primary-accent: #a8b5c8;
+            --secondary-accent: #9aa7ba;
+            --parchment: #f8f6f0;
+            --midnight-blue: #000000;
+            --dark-blue: #111111;
+            --light-blue: #1a1a1a;
+            --text-light: #ffffff;
+            --text-gray: #888888;
+            --accent-green: #4caf50;
+            --gradient-primary: linear-gradient(135deg, #000000 0%, #111111 100%);
+            --gradient-accent: linear-gradient(135deg, #a8b5c8 0%, #9aa7ba 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-primary);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-weight: 400;
+        }
+
+        .app-container {
+            max-width: 100vw;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(168, 181, 200, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo::before {
+            content: "✨";
+            font-size: 1.2rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .points-display {
+            background: var(--gradient-accent);
+            color: var(--midnight-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--midnight-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        /* Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-top: 1px solid rgba(168, 181, 200, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-item.active {
+            color: var(--primary-accent);
+            background: rgba(168, 181, 200, 0.1);
+        }
+
+        .nav-item:hover {
+            color: var(--primary-accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-icon {
+            font-size: 1.8rem;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Map Tab */
+        .map-container {
+            background: var(--dark-blue);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(168, 181, 200, 0.1);
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .location-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-accent);
+            background: transparent;
+            color: var(--primary-accent);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-accent);
+            color: var(--midnight-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(168, 181, 200, 0.3);
+        }
+
+        .mock-map {
+            height: 350px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            border-radius: 20px;
+            position: relative;
+            margin: 2rem 0;
+            overflow: hidden;
+            border: 1px solid rgba(168, 181, 200, 0.1);
+        }
+
+        .map-pin {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-accent);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-pin::after {
+            content: "⛪";
+            transform: rotate(45deg);
+            font-size: 1.2rem;
+            color: var(--midnight-blue);
+        }
+
+        .map-pin:hover {
+            transform: rotate(-45deg) scale(1.2);
+        }
+
+        .location-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .location-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(168, 181, 200, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+            box-shadow: 0 15px 40px rgba(168, 181, 200, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .location-type {
+            font-size: 0.8rem;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .location-distance {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .location-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--midnight-blue);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-accent);
+            border: 2px solid var(--primary-accent);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 181, 200, 0.2);
+        }
+
+        /* Journal Tab */
+        .journal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .journal-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .journal-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .streak-display {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .streak-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary-accent) 0deg 216deg, rgba(168, 181, 200, 0.2) 216deg 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .streak-circle::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--dark-blue);
+            border-radius: 50%;
+        }
+
+        .streak-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+            z-index: 1;
+        }
+
+        .habit-tracker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .habit-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .habit-item.completed {
+            border-color: var(--accent-green);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .habit-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .habit-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .journal-entry {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .journal-prompt {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--primary-accent);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .journal-textarea {
+            width: 100%;
+            min-height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .journal-textarea:focus {
+            outline: none;
+            border-color: var(--primary-accent);
+        }
+
+        /* Community Tab */
+        .community-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .community-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .friends-list {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .friend-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .friend-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--midnight-blue);
+        }
+
+        .friend-info {
+            flex: 1;
+        }
+
+        .friend-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .friend-activity {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .friend-points {
+            color: var(--primary-accent);
+            font-weight: 600;
+        }
+
+        .group-challenges {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .challenge-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .challenge-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .challenge-progress {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .challenge-progress-bar {
+            height: 100%;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        /* Rewards Tab */
+        .rewards-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .rewards-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .reward-card {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+        }
+
+        .reward-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .reward-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .reward-cost {
+            color: var(--primary-accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .reward-description {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Guide Tab */
+        .guide-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .guide-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chat-container {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 2rem;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 1.5rem;
+        }
+
+        .message-bubble {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .message-bubble.user {
+            background: rgba(168, 181, 200, 0.1);
+            border-left-color: var(--secondary-accent);
+            margin-left: 2rem;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 25px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary-accent);
+        }
+
+        .send-btn {
+            padding: 1rem 2rem;
+            background: var(--gradient-accent);
+            color: var(--midnight-blue);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .points-display {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .tab-content {
+                padding: 1rem 0.5rem;
+            }
+
+            .map-container,
+            .journal-entry,
+            .group-challenges,
+            .rewards-grid,
+            .chat-container {
+                margin: 0 -0.5rem;
+                border-radius: 15px;
+            }
+
+            .location-filters {
+                justify-content: center;
+            }
+
+            .filter-btn {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .habit-tracker {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .bounce {
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Loading states */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(168, 181, 200, 0.3);
+            border-top: 2px solid var(--primary-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success animations */
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--gradient-accent);
+            color: var(--midnight-blue);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 10000;
+            font-weight: 600;
+            animation: successPop 3s ease-in-out forwards;
+        }
+
+        @keyframes successPop {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            20% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">PILGRIM PATH</div>
+                <div class="user-info">
+                    <div class="points-display">
+                        <span id="userPoints">750</span> POINTS
+                    </div>
+                    <div class="avatar">🕊️</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Map Tab -->
+            <div id="mapTab" class="tab-content active">
+                <div class="map-container">
+                    <div class="map-header">
+                        <h2 class="map-title">Pilgrim Map</h2>
+                        <div class="location-filters">
+                            <button class="filter-btn active" data-filter="all">ALL</button>
+                            <button class="filter-btn" data-filter="church">CHURCHES</button>
+                            <button class="filter-btn" data-filter="adoration">ADORATION</button>
+                            <button class="filter-btn" data-filter="outdoor">OUTDOOR</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mock-map" id="mockMap">
+                        <div class="map-pin" style="top: 20%; left: 30%;" data-location="0"></div>
+                        <div class="map-pin" style="top: 60%; left: 70%;" data-location="1"></div>
+                        <div class="map-pin" style="top: 40%; left: 50%;" data-location="2"></div>
+                        <div class="map-pin" style="top: 80%; left: 20%;" data-location="3"></div>
+                        <div class="map-pin" style="top: 15%; left: 80%;" data-location="4"></div>
+                    </div>
+                    
+                    <div class="location-list" id="locationList">
+                        <!-- Locations will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journal Tab -->
+            <div id="journalTab" class="tab-content">
+                <div class="journal-header">
+                    <h2 class="journal-title">Sacred Logbook</h2>
+                    <p class="journal-subtitle">Track your spiritual journey</p>
+                </div>
+
+                <div class="streak-display">
+                    <div class="streak-circle">
+                        <div class="streak-number" id="streakCount">7</div>
+                    </div>
+                    <p>Day Streak</p>
+                </div>
+
+                <div class="habit-tracker" id="habitTracker">
+                    <div class="habit-item" data-habit="mass">
+                        <div class="habit-icon">⛪</div>
+                        <div class="habit-name">MASS</div>
+                    </div>
+                    <div class="habit-item completed" data-habit="rosary">
+                        <div class="habit-icon">📿</div>
+                        <div class="habit-name">ROSARY</div>
+                    </div>
+                    <div class="habit-item" data-habit="prayer">
+                        <div class="habit-icon">🙏</div>
+                        <div class="habit-name">PRAYER</div>
+                    </div>
+                    <div class="habit-item completed" data-habit="reading">
+                        <div class="habit-icon">📖</div>
+                        <div class="habit-name">SCRIPTURE</div>
+                    </div>
+                </div>
+
+                <div class="journal-entry">
+                    <div class="journal-prompt" id="dailyPrompt">
+                        "What moment today brought you closest to God?"
+                    </div>
+                    <textarea class="journal-textarea" placeholder="Begin your reflection..."></textarea>
+                    <div style="margin-top: 1rem;">
+                        <button class="action-btn btn-primary">SAVE ENTRY</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Tab -->
+            <div id="communityTab" class="tab-content">
+                <div class="community-header">
+                    <h2 class="community-title">Upper Room</h2>
+                    <p class="journal-subtitle">Connect with fellow pilgrims</p>
+                </div>
+
+                <div class="friends-list" id="friendsList">
+                    <div class="friend-card">
+                        <div class="friend-avatar">👤</div>
+                        <div class="friend-info">
+                            <div class="friend-name">MARIA SANTOS</div>
+                            <div class="friend-activity">Visited St. Mary's Chapel • 2h ago</div>
+                        </div>
+                        <div class="friend-points">920 PTS</div>
+                    </div>
+                    <div class="friend-card">
+                        <div class="friend-avatar">👤</div>
+                        <div class="friend-info">
+                            <div class="friend-name">JOHN PAUL</div>
+                            <div class="friend-activity">Completed 10-day streak • 1d ago</div>
+                        </div>
+                        <div class="friend-points">1,250 PTS</div>
+                    </div>
+                    <div class="friend-card">
+                        <div class="friend-avatar">👤</div>
+                        <div class="friend-info">
+                            <div class="friend-name">TERESA MERCY</div>
+                            <div class="friend-activity">Prayed at Holy Trinity • 3h ago</div>
+                        </div>
+                        <div class="friend-points">680 PTS</div>
+                    </div>
+                </div>
+
+                <div class="group-challenges">
+                    <h3 style="color: var(--primary-accent); margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">ACTIVE CHALLENGES</h3>
+                    
+                    <div class="challenge-item">
+                        <div class="challenge-title">WEEKLY CHAPEL QUEST</div>
+                        <div style="color: var(--text-gray); font-size: 0.9rem;">Visit 3 different chapels this week</div>
+                        <div class="challenge-progress">
+                            <div class="challenge-progress-bar" style="width: 67%;"></div>
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-gray);">2/3 COMPLETED • 3 DAYS LEFT</div>
+                    </div>
+
+                    <div class="challenge-item">
+                        <div class="challenge-title">COMMUNITY ROSARY</div>
+                        <div style="color: var(--text-gray); font-size: 0.9rem;">Pray the rosary with 10 friends</div>
+                        <div class="challenge-progress">
+                            <div class="challenge-progress-bar" style="width: 40%;"></div>
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-gray);">4/10 FRIENDS JOINED • 5 DAYS LEFT</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rewards Tab -->
+            <div id="rewardsTab" class="tab-content">
+                <div class="rewards-header">
+                    <h2 class="rewards-title">Heavenly Vault</h2>
+                    <p class="journal-subtitle">Redeem your spiritual achievements</p>
+                </div>
+
+                <div class="rewards-grid">
+                    <div class="reward-card">
+                        <div class="reward-icon">📿</div>
+                        <div class="reward-name">BLESSED ROSARY</div>
+                        <div class="reward-cost">500 POINTS</div>
+                        <div class="reward-description">Hand-crafted rosary blessed by local clergy</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-icon">✝️</div>
+                        <div class="reward-name">WOODEN CRUCIFIX</div>
+                        <div class="reward-cost">750 POINTS</div>
+                        <div class="reward-description">Beautiful olive wood crucifix from the Holy Land</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-icon">🎫</div>
+                        <div class="reward-name">RETREAT DISCOUNT</div>
+                        <div class="reward-cost">1000 POINTS</div>
+                        <div class="reward-description">25% off your next spiritual retreat</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-icon">📚</div>
+                        <div class="reward-name">SPIRITUAL BOOKS</div>
+                        <div class="reward-cost">300 POINTS</div>
+                        <div class="reward-description">Collection of classic Catholic literature</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-icon">🏛️</div>
+                        <div class="reward-name">PILGRIMAGE VOUCHER</div>
+                        <div class="reward-cost">2000 POINTS</div>
+                        <div class="reward-description">$100 toward your next pilgrimage journey</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-icon">🎨</div>
+                        <div class="reward-name">SACRED ART PRINT</div>
+                        <div class="reward-cost">400 POINTS</div>
+                        <div class="reward-description">High-quality print of classic religious artwork</div>
+                        <button class="action-btn btn-primary">REDEEM</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide Tab -->
+            <div id="guideTab" class="tab-content">
+                <div class="guide-header">
+                    <h2 class="guide-title">Ask Guidebot</h2>
+                    <p class="journal-subtitle">Your AI spiritual companion</p>
+                </div>
+
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-message">
+                        <div class="message-bubble">
+                            <strong>Guidebot:</strong> Peace be with you! I'm here to help guide your spiritual journey. What would you like to explore today?
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message">
+                        <div class="message-bubble user">
+                            <strong>You:</strong> What should I do for spiritual growth today?
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message">
+                        <div class="message-bubble">
+                            <strong>Guidebot:</strong> Based on your location and recent activities, I suggest visiting St. Michael's Church nearby for Adoration. You could also continue your rosary streak - you're doing wonderfully with 7 days! Consider reflecting on today's Gospel reading from Luke 10:38-42 about Mary and Martha.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Ask for spiritual guidance..." id="chatInput">
+                    <button class="send-btn" id="sendBtn">SEND</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-container">
+                <div class="nav-item active" data-tab="mapTab">
+                    <div class="nav-icon">🗺️</div>
+                    <div>MAP</div>
+                </div>
+                <div class="nav-item" data-tab="journalTab">
+                    <div class="nav-icon">📖</div>
+                    <div>JOURNAL</div>
+                </div>
+                <div class="nav-item" data-tab="communityTab">
+                    <div class="nav-icon">👥</div>
+                    <div>COMMUNITY</div>
+                </div>
+                <div class="nav-item" data-tab="rewardsTab">
+                    <div class="nav-icon">🎁</div>
+                    <div>REWARDS</div>
+                </div>
+                <div class="nav-item" data-tab="guideTab">
+                    <div class="nav-icon">🤖</div>
+                    <div>GUIDE</div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        // Mock data for Catholic locations
+        const mockLocations = [
+            {
+                id: 0,
+                name: "St. Mary's Cathedral",
+                type: "church",
+                distance: "0.3 miles",
+                description: "Historic cathedral with daily Mass and confession",
+                massTime: "7:00 AM, 12:00 PM, 6:00 PM",
+                features: ["Mass", "Confession", "Adoration"],
+                points: 100,
+                visited: false
+            },
+            {
+                id: 1,
+                name: "Holy Trinity Chapel",
+                type: "church",
+                distance: "0.8 miles",
+                description: "Peaceful chapel perfect for quiet prayer",
+                massTime: "8:00 AM, 5:00 PM",
+                features: ["Mass", "Quiet Prayer"],
+                points: 75,
+                visited: true
+            },
+            {
+                id: 2,
+                name: "St. Joseph Adoration Chapel",
+                type: "adoration",
+                distance: "1.2 miles",
+                description: "24/7 Perpetual Adoration of the Blessed Sacrament",
+                massTime: "24/7 Adoration",
+                features: ["Adoration", "Quiet Prayer"],
+                points: 150,
+                visited: false
+            },
+            {
+                id: 3,
+                name: "Our Lady of Peace Garden",
+                type: "outdoor",
+                distance: "0.5 miles",
+                description: "Beautiful outdoor shrine and prayer garden",
+                massTime: "Sunrise to Sunset",
+                features: ["Outdoor Prayer", "Meditation"],
+                points: 50,
+                visited: false
+            },
+            {
+                id: 4,
+                name: "Sacred Heart Parish",
+                type: "church",
+                distance: "2.1 miles",
+                description: "Vibrant parish community with youth programs",
+                massTime: "6:30 AM, 9:00 AM, 11:30 AM, 6:00 PM",
+                features: ["Mass", "Community", "Youth Programs"],
+                points: 125,
+                visited: false
+            }
+        ];
+
+        // Daily prompts for reflection
+        const dailyPrompts = [
+            "What moment today brought you closest to God?",
+            "How did you see Christ in others today?",
+            "What are you most grateful for right now?",
+            "Where do you need God's guidance in your life?",
+            "How can you serve others better tomorrow?",
+            "What scripture verse spoke to your heart today?",
+            "How did you experience God's mercy today?"
+        ];
+
+        // App state
+        let currentTab = 'mapTab';
+        let userPoints = 750;
+        let streakCount = 7;
+        let currentFilter = 'all';
+        let completedHabits = ['rosary', 'reading'];
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            registerServiceWorker();
+        });
+
+        function initializeApp() {
+            setupNavigation();
+            setupLocationList();
+            setupHabitTracker();
+            setupFilters();
+            setupChat();
+            setupRewards();
+            updateUI();
+        }
+
+        // Service Worker Registration for PWA
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                const swCode = `
+                    const CACHE_NAME = 'pilgrim-path-v1';
+                    const urlsToCache = [
+                        '/',
+                        '/manifest.json'
+                    ];
+
+                    self.addEventListener('install', event => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then(cache => cache.addAll(urlsToCache))
+                        );
+                    });
+
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then(response => {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                })
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('SW registered successfully');
+                    })
+                    .catch(error => {
+                        console.log('SW registration failed');
+                    });
+            }
+        }
+
+        // Navigation setup
+        function setupNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetTab = item.dataset.tab;
+                    switchTab(targetTab);
+                });
+            });
+        }
+
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show target tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to corresponding nav item
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            
+            currentTab = tabId;
+        }
+
+        // Location list setup
+        function setupLocationList() {
+            const locationList = document.getElementById('locationList');
+            renderLocations();
+        }
+
+        function renderLocations() {
+            const locationList = document.getElementById('locationList');
+            const filteredLocations = currentFilter === 'all' 
+                ? mockLocations 
+                : mockLocations.filter(loc => loc.type === currentFilter);
+
+            locationList.innerHTML = filteredLocations.map(location => `
+                <div class="location-card ${location.visited ? 'visited' : ''}" data-location="${location.id}">
+                    <div class="location-header">
+                        <div>
+                            <div class="location-name">${location.name}</div>
+                            <div class="location-type">${location.type.toUpperCase()}</div>
+                        </div>
+                        <div class="location-distance">${location.distance}</div>
+                    </div>
+                    <div style="margin: 1rem 0; color: var(--text-gray);">${location.description}</div>
+                    <div style="margin: 0.5rem 0; color: var(--primary-accent); font-weight: 500;">⏰ ${location.massTime}</div>
+                    <div style="margin: 0.5rem 0;">
+                        ${location.features.map(feature => `<span style="background: rgba(168,181,200,0.1); color: var(--primary-accent); padding: 0.25rem 0.5rem; border-radius: 10px; font-size: 0.8rem; margin-right: 0.5rem;">${feature}</span>`).join('')}
+                    </div>
+                    <div class="location-actions">
+                        ${location.visited 
+                            ? '<span style="color: var(--accent-green); font-weight: 600;">✓ VISITED</span>'
+                            : `<button class="action-btn btn-primary" onclick="visitLocation(${location.id})">CHECK IN (+${location.points} PTS)</button>`
+                        }
+                        <button class="action-btn btn-secondary" onclick="getDirections(${location.id})">DIRECTIONS</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter setup
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all filters
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked filter
+                    btn.classList.add('active');
+                    // Update current filter
+                    currentFilter = btn.dataset.filter;
+                    // Re-render locations
+                    renderLocations();
+                });
+            });
+        }
+
+        // Habit tracker setup
+        function setupHabitTracker() {
+            const habitItems = document.querySelectorAll('.habit-item');
+            habitItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const habit = item.dataset.habit;
+                    toggleHabit(habit, item);
+                });
+            });
+        }
+
+        function toggleHabit(habit, element) {
+            if (completedHabits.includes(habit)) {
+                completedHabits = completedHabits.filter(h => h !== habit);
+                element.classList.remove('completed');
+            } else {
+                completedHabits.push(habit);
+                element.classList.add('completed');
+                showSuccessPopup(`${habit.toUpperCase()} completed! +25 points`);
+                userPoints += 25;
+                updatePointsDisplay();
+            }
+        }
+
+        // Chat setup
+        function setupChat() {
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendBtn');
+            
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const message = chatInput.value.trim();
+            
+            if (!message) return;
+            
+            const chatContainer = document.getElementById('chatContainer');
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message';
+            userMessage.innerHTML = `
+                <div class="message-bubble user">
+                    <strong>You:</strong> ${message}
+                </div>
+            `;
+            chatContainer.appendChild(userMessage);
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const aiResponse = generateAIResponse(message);
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'chat-message';
+                aiMessage.innerHTML = `
+                    <div class="message-bubble">
+                        <strong>Guidebot:</strong> ${aiResponse}
+                    </div>
+                `;
+                chatContainer.appendChild(aiMessage);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+        }
+
+        function generateAIResponse(userMessage) {
+            const responses = [
+                "I sense you're seeking deeper connection with God. Have you considered spending time in Adoration today? St. Joseph's Chapel offers 24/7 Adoration nearby.",
+                "Your spiritual journey is beautiful. Based on your recent activities, I suggest praying the Joyful Mysteries of the Rosary and reflecting on Mary's faith.",
+                "God is calling you to something beautiful. Consider visiting one of the peaceful prayer gardens nearby for quiet reflection with Scripture.",
+                "I notice you've been consistent with your prayer life. Perhaps it's time to explore a new form of prayer - have you tried Lectio Divina?",
+                "Your heart seems open to God's grace. I recommend visiting the cathedral for evening Mass and staying for a few moments of thanksgiving.",
+                "You're growing in holiness each day. Consider connecting with other pilgrims in your community for shared prayer and fellowship."
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Rewards setup
+        function setupRewards() {
+            const redeemBtns = document.querySelectorAll('.reward-card .btn-primary');
+            redeemBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const rewardCard = e.target.closest('.reward-card');
+                    const rewardName = rewardCard.querySelector('.reward-name').textContent;
+                    const rewardCost = parseInt(rewardCard.querySelector('.reward-cost').textContent);
+                    
+                    if (userPoints >= rewardCost) {
+                        userPoints -= rewardCost;
+                        updatePointsDisplay();
+                        showSuccessPopup(`${rewardName} redeemed successfully!`);
+                        e.target.textContent = 'REDEEMED';
+                        e.target.disabled = true;
+                        e.target.style.opacity = '0.5';
+                    } else {
+                        showSuccessPopup(`Not enough points! Need ${rewardCost - userPoints} more points.`);
+                    }
+                });
+            });
+        }
+
+        // Location interactions
+        function visitLocation(locationId) {
+            const location = mockLocations.find(loc => loc.id === locationId);
+            if (location && !location.visited) {
+                location.visited = true;
+                userPoints += location.points;
+                showSuccessPopup(`Checked in at ${location.name}! +${location.points} points`);
+                updatePointsDisplay();
+                renderLocations();
+            }
+        }
+
+        function getDirections(locationId) {
+            const location = mockLocations.find(loc => loc.id === locationId);
+            showSuccessPopup(`Opening directions to ${location.name}...`);
+            // In a real app, this would integrate with maps
+        }
+
+        // UI Updates
+        function updateUI() {
+            updatePointsDisplay();
+            updateStreakDisplay();
+            updateDailyPrompt();
+        }
+
+        function updatePointsDisplay() {
+            document.getElementById('userPoints').textContent = userPoints;
+        }
+
+        function updateStreakDisplay() {
+            document.getElementById('streakCount').textContent = streakCount;
+        }
+
+        function updateDailyPrompt() {
+            const today = new Date().getDay();
+            const prompt = dailyPrompts[today];
+            document.getElementById('dailyPrompt').textContent = `"${prompt}"`;
+        }
+
+        // Success popup
+        function showSuccessPopup(message) {
+            const popup = document.createElement('div');
+            popup.className = 'success-popup';
+            popup.textContent = message;
+            document.body.appendChild(popup);
+            
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 3000);
+        }
+
+        // Geolocation simulation
+        function simulateGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        console.log('User location:', position.coords);
+                        // In a real app, this would update location-based features
+                    },
+                    (error) => {
+                        console.log('Location access denied');
+                    }
+                );
+            }
+        }
+
+        // Initialize location services
+        setTimeout(simulateGeolocation, 1000);
+
+        // Auto-save journal entries
+        const journalTextarea = document.querySelector('.journal-textarea');
+        if (journalTextarea) {
+            journalTextarea.addEventListener('input', () => {
+                // In a real app, this would save to local storage or server
+                console.log('Journal entry auto-saved');
+            });
+        }
+
+        // Add install prompt for PWA
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button or prompt
+            const installBtn = document.createElement('button');
+            installBtn.textContent = 'INSTALL APP';
+            installBtn.className = 'action-btn btn-primary';
+            installBtn.style.position = 'fixed';
+            installBtn.style.top = '100px';
+            installBtn.style.right = '20px';
+            installBtn.style.zIndex = '10000';
+            
+            installBtn.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                    document.body.removeChild(installBtn);
+                });
+            });
+            
+            document.body.appendChild(installBtn);
+        });
+
+        // Handle app installation
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('Pilgrim Path has been installed successfully');
+            showSuccessPopup('Pilgrim Path installed successfully! 🎉');
+        });
+    </script>
+</body>
+</html>
