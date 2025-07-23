@@ -131,8 +131,8 @@
         /* Main Content */
         .main-content {
             flex: 1;
-            padding-top: 100px;
-            padding-bottom: 100px;
+            padding-top: 70px;
+            padding-bottom: 90px;
         }
 
         /* Navigation */
@@ -141,10 +141,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             backdrop-filter: blur(20px);
-            padding: 1.5rem;
-            border-top: 1px solid rgba(168, 181, 200, 0.1);
+            padding: 0.75rem 1rem 1.5rem 1rem;
+            border-top: 1px solid rgba(168, 181, 200, 0.08);
             z-index: 1000;
         }
 
@@ -159,37 +159,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem;
-            border-radius: 15px;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--text-gray);
             text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
             font-family: 'Poppins', sans-serif;
+            min-width: 50px;
         }
 
         .nav-item.active {
             color: var(--primary-accent);
-            background: rgba(168, 181, 200, 0.1);
+            background: rgba(168, 181, 200, 0.08);
+            transform: scale(1.05);
         }
 
         .nav-item:hover {
             color: var(--primary-accent);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .nav-icon {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
         }
 
         /* Tab Content */
         .tab-content {
             display: none;
-            padding: 3rem 2rem;
+            padding: 1.5rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
             animation: fadeIn 0.3s ease;
@@ -207,72 +209,82 @@
         /* Map Tab */
         .map-container {
             background: var(--dark-blue);
-            border-radius: 25px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(168, 181, 200, 0.1);
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .map-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .map-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary-accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            line-height: 1.2;
         }
 
         .location-filters {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary-accent);
+            padding: 0.5rem 1rem;
+            border: 1.5px solid var(--primary-accent);
             background: transparent;
             color: var(--primary-accent);
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             font-weight: 600;
             font-family: 'Poppins', sans-serif;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
         }
 
         .filter-btn.active {
             background: var(--primary-accent);
             color: var(--midnight-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(168, 181, 200, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 181, 200, 0.25);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 181, 200, 0.15);
         }
 
         .mock-map {
-            height: 350px;
+            height: 280px;
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-            border-radius: 20px;
+            border-radius: 16px;
             position: relative;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             overflow: hidden;
-            border: 1px solid rgba(168, 181, 200, 0.1);
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .map-pin {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: var(--primary-accent);
             border-radius: 50% 50% 50% 0;
             transform: rotate(-45deg);
@@ -281,17 +293,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(168, 181, 200, 0.3);
         }
 
         .map-pin::after {
             content: "⛪";
             transform: rotate(45deg);
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--midnight-blue);
         }
 
         .map-pin:hover {
-            transform: rotate(-45deg) scale(1.2);
+            transform: rotate(-45deg) scale(1.15);
+            box-shadow: 0 6px 20px rgba(168, 181, 200, 0.4);
         }
 
         .location-list {
@@ -302,17 +316,17 @@
 
         .location-card {
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(168, 181, 200, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem;
+            border: 1px solid rgba(168, 181, 200, 0.08);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .location-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-accent);
-            box-shadow: 0 15px 40px rgba(168, 181, 200, 0.1);
+            transform: translateY(-3px);
+            border-color: rgba(168, 181, 200, 0.2);
+            box-shadow: 0 12px 32px rgba(168, 181, 200, 0.08);
             background: rgba(255, 255, 255, 0.05);
         }
 
@@ -320,48 +334,52 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .location-name {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-light);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             font-family: 'Poppins', sans-serif;
+            line-height: 1.3;
         }
 
         .location-type {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--primary-accent);
             text-transform: uppercase;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             font-family: 'Poppins', sans-serif;
         }
 
         .location-distance {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .location-actions {
             display: flex;
             gap: 0.5rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .action-btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -372,50 +390,53 @@
         .btn-secondary {
             background: transparent;
             color: var(--primary-accent);
-            border: 2px solid var(--primary-accent);
+            border: 1.5px solid var(--primary-accent);
         }
 
         .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(168, 181, 200, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 181, 200, 0.15);
         }
 
         /* Journal Tab */
         .journal-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .journal-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--primary-accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .journal-subtitle {
             color: var(--text-gray);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
         }
 
         .streak-display {
             background: var(--dark-blue);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .streak-circle {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: conic-gradient(var(--primary-accent) 0deg 216deg, rgba(168, 181, 200, 0.2) 216deg 360deg);
+            background: conic-gradient(var(--primary-accent) 0deg 216deg, rgba(168, 181, 200, 0.15) 216deg 360deg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -426,30 +447,31 @@
         .streak-circle::before {
             content: "";
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--dark-blue);
             border-radius: 50%;
         }
 
         .streak-number {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--primary-accent);
             z-index: 1;
+            font-family: 'Poppins', sans-serif;
         }
 
         .habit-tracker {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .habit-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 1rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -458,11 +480,16 @@
 
         .habit-item.completed {
             border-color: var(--accent-green);
-            background: rgba(76, 175, 80, 0.1);
+            background: rgba(76, 175, 80, 0.08);
+        }
+
+        .habit-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .habit-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
 
@@ -470,20 +497,47 @@
             font-weight: 600;
             margin-bottom: 0.25rem;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.8px;
         }
 
         .journal-entry {
             background: var(--dark-blue);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .journal-prompt {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
             font-weight: 500;
             color: var(--primary-accent);
+            margin-bottom: 1rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .journal-textarea {
+            width: 100%;
+            min-height: 150px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(168, 181, 200, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .journal-textarea:focus {
+            outline: none;
+            border-color: var(--primary-accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
             margin-bottom: 1rem;
             font-style: italic;
         }
@@ -509,88 +563,106 @@
         /* Community Tab */
         .community-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .community-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--primary-accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .friends-list {
             display: grid;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .friend-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            border: 1px solid rgba(168, 181, 200, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .friend-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
         }
 
         .friend-avatar {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--gradient-accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--midnight-blue);
+            flex-shrink: 0;
         }
 
         .friend-info {
             flex: 1;
+            min-width: 0;
         }
 
         .friend-name {
             font-weight: 600;
             margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .friend-activity {
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            line-height: 1.3;
         }
 
         .friend-points {
             color: var(--primary-accent);
             font-weight: 600;
+            font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+            flex-shrink: 0;
         }
 
         .group-challenges {
             background: var(--dark-blue);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 18px;
+            padding: 1.5rem;
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .challenge-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--primary-accent);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid var(--primary-accent);
         }
 
         .challenge-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .challenge-progress {
-            background: rgba(255, 255, 255, 0.1);
-            height: 8px;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            height: 6px;
+            border-radius: 3px;
             overflow: hidden;
             margin: 0.5rem 0;
         }
@@ -664,102 +736,132 @@
         /* Guide Tab */
         .guide-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .guide-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--primary-accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .chat-container {
             background: var(--dark-blue);
-            border-radius: 20px;
-            padding: 2rem;
-            max-height: 500px;
+            border-radius: 18px;
+            padding: 1.5rem;
+            max-height: 450px;
             overflow-y: auto;
+            border: 1px solid rgba(168, 181, 200, 0.08);
         }
 
         .chat-message {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .message-bubble {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1rem;
-            border-left: 4px solid var(--primary-accent);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 0.75rem;
+            border-left: 3px solid var(--primary-accent);
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         .message-bubble.user {
-            background: rgba(168, 181, 200, 0.1);
+            background: rgba(168, 181, 200, 0.08);
             border-left-color: var(--secondary-accent);
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
 
         .chat-input-container {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 1rem;
         }
 
         .chat-input {
             flex: 1;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 25px;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(168, 181, 200, 0.1);
+            border-radius: 20px;
             color: var(--text-light);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
         }
 
         .chat-input:focus {
             outline: none;
             border-color: var(--primary-accent);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .send-btn {
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.25rem;
             background: var(--gradient-accent);
             color: var(--midnight-blue);
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 181, 200, 0.15);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
-                padding: 0 0.5rem;
+                padding: 0;
             }
 
             .logo {
-                font-size: 1.3rem;
+                font-size: 1rem;
+                letter-spacing: 1px;
             }
 
             .points-display {
                 padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
             }
 
             .tab-content {
-                padding: 1rem 0.5rem;
+                padding: 1rem 0.75rem;
             }
 
             .map-container,
             .journal-entry,
             .group-challenges,
-            .rewards-grid,
             .chat-container {
-                margin: 0 -0.5rem;
-                border-radius: 15px;
+                border-radius: 16px;
+            }
+
+            .map-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .map-title {
+                font-size: 1.5rem;
+                text-align: center;
             }
 
             .location-filters {
@@ -767,16 +869,107 @@
             }
 
             .filter-btn {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
                 padding: 0.4rem 0.8rem;
             }
 
             .habit-tracker {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .habit-item {
+                padding: 0.75rem;
+            }
+
+            .habit-icon {
+                font-size: 1.5rem;
+            }
+
+            .habit-name {
+                font-size: 0.7rem;
             }
 
             .rewards-grid {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .reward-card {
+                padding: 1.25rem;
+            }
+
+            .location-card {
+                padding: 1rem;
+            }
+
+            .location-name {
+                font-size: 1rem;
+            }
+
+            .location-actions {
+                justify-content: flex-start;
+            }
+
+            .action-btn {
+                font-size: 0.65rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .journal-title,
+            .community-title,
+            .rewards-title,
+            .guide-title {
+                font-size: 1.6rem;
+            }
+
+            .mock-map {
+                height: 240px;
+            }
+
+            .map-pin {
+                width: 28px;
+                height: 28px;
+            }
+
+            .map-pin::after {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tab-content {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .map-container {
+                padding: 1rem;
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .location-card,
+            .friend-card,
+            .reward-card {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+                border-radius: 12px;
+            }
+
+            .filter-btn {
+                font-size: 0.6rem;
+                padding: 0.35rem 0.7rem;
+            }
+
+            .nav-item {
+                font-size: 0.55rem;
+            }
+
+            .nav-icon {
+                font-size: 1.2rem;
             }
         }
 
@@ -962,7 +1155,7 @@
                 </div>
 
                 <div class="group-challenges">
-                    <h3 style="color: var(--primary-accent); margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">ACTIVE CHALLENGES</h3>
+                    <h3 style="color: var(--primary-accent); margin-bottom: 1rem; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">ACTIVE CHALLENGES</h3>
                     
                     <div class="challenge-item">
                         <div class="challenge-title">WEEKLY CHAPEL QUEST</div>
@@ -1293,9 +1486,9 @@
                         <div class="location-distance">${location.distance}</div>
                     </div>
                     <div style="margin: 1rem 0; color: var(--text-gray);">${location.description}</div>
-                    <div style="margin: 0.5rem 0; color: var(--primary-accent); font-weight: 500;">⏰ ${location.massTime}</div>
+                    <div style="margin: 0.5rem 0; color: var(--primary-accent); font-weight: 500; font-size: 0.8rem;">⏰ ${location.massTime}</div>
                     <div style="margin: 0.5rem 0;">
-                        ${location.features.map(feature => `<span style="background: rgba(168,181,200,0.1); color: var(--primary-accent); padding: 0.25rem 0.5rem; border-radius: 10px; font-size: 0.8rem; margin-right: 0.5rem;">${feature}</span>`).join('')}
+                        ${location.features.map(feature => `<span style="background: rgba(168,181,200,0.08); color: var(--primary-accent); padding: 0.2rem 0.5rem; border-radius: 8px; font-size: 0.7rem; margin-right: 0.4rem; font-weight: 500;">${feature}</span>`).join('')}
                     </div>
                     <div class="location-actions">
                         ${location.visited 
